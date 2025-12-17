@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Preparing your download...</p>
+
+  <script>
+    // 当前时间（分钟级）
+    const t = Math.floor(Date.now() / 60000);
+
+    // 一个简单混淆（不是加密，但够用）
+    const raw = t + ":goodman";
+
+    // base64
+    const token = btoa(raw);
+
+    // 跳转到 Cloudflare Worker
+    location.href = "/download?token=" + encodeURIComponent(token);
+  </script>
+</body>
+</html>
